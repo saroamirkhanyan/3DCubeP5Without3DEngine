@@ -7,8 +7,12 @@ let projection = [
 
 let angle = 0;
 
+function vectorToArr(vector) {
+  return Object.values(vector).slice(1)
+}
+
 function multMatrix(matrix, vector) {
-  vector = Object.values(vector).slice(1)
+  vector = vectorToArr(vector)
   return createVector(
     ...matrix.map(row => row.reduce(
       (acc, curr, idx) => acc + curr * vector[idx], 0)
