@@ -67,12 +67,15 @@ function project(points) {
 }
 
 function setup() {
-  points[0] = createVector(0, -30, 0)
-  points[1] = createVector(-30, 30, 30)
-  points[2] = createVector(30, 30, 30)
+  points[0] = createVector(-50, -50, -50)
+  points[1] = createVector(50, 50, -50)
+  points[2] = createVector(-50, 50, -50)
+  points[3] = createVector(50, -50, -50)
 
-  points[3] = createVector(-30, 30, -30)
-  points[4] = createVector(30, 30, -30)
+  points[4] = createVector(-50, -50, 50)
+  points[5] = createVector(50, 50, 50)
+  points[6] = createVector(-50, 50, 50)
+  points[7] = createVector(50, -50, 50)
 
   createCanvas(500, 500)
 }
@@ -94,17 +97,20 @@ function draw() {
         point(newPoints[i].x, newPoints[i].y)
       }
 
-      connectPoints(newPoints[0], newPoints[1])
-      connectPoints(newPoints[0], newPoints[2])
-      connectPoints(newPoints[1], newPoints[2])
+    connectPoints(newPoints[0], newPoints[3])
+    connectPoints(newPoints[1], newPoints[2])
+    connectPoints(newPoints[0], newPoints[2])
+    connectPoints(newPoints[1], newPoints[3])
 
-      connectPoints(newPoints[0], newPoints[3])
-      connectPoints(newPoints[0], newPoints[4])
+    connectPoints(newPoints[4], newPoints[0])
+    connectPoints(newPoints[5], newPoints[1])
+    connectPoints(newPoints[6], newPoints[2])
+    connectPoints(newPoints[7], newPoints[3])
 
-
-      connectPoints(newPoints[3], newPoints[4])
-      connectPoints(newPoints[2], newPoints[4])
-      connectPoints(newPoints[1], newPoints[3])
+    connectPoints(newPoints[4], newPoints[6])
+    connectPoints(newPoints[5], newPoints[6])
+    connectPoints(newPoints[7], newPoints[4])
+    connectPoints(newPoints[7], newPoints[5])
 
 
     })
