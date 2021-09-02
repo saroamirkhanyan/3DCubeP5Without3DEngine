@@ -1,7 +1,7 @@
 let points = []
 
 
-let angle = 0;
+let angle = 30;
 
 function vectorToArr(vector) {
   return Object.values(vector).slice(1)
@@ -87,9 +87,9 @@ function draw() {
   translate(width / 2, height / 2)
 
   Promise.resolve(points)
-    .then(myRotateX)
-    .then(myRotateY)
-    .then(myRotateZ)
+    // .then(myRotateX)
+    // .then(myRotateY)
+    // .then(myRotateZ)
     .then(project)
     .then(newPoints => {
 
@@ -97,23 +97,22 @@ function draw() {
         point(newPoints[i].x, newPoints[i].y)
       }
 
-    connectPoints(newPoints[0], newPoints[3])
-    connectPoints(newPoints[1], newPoints[2])
-    connectPoints(newPoints[0], newPoints[2])
-    connectPoints(newPoints[1], newPoints[3])
+      connectPoints(newPoints[0], newPoints[3])
+      connectPoints(newPoints[1], newPoints[2])
+      connectPoints(newPoints[0], newPoints[2])
+      connectPoints(newPoints[1], newPoints[3])
 
-    connectPoints(newPoints[4], newPoints[0])
-    connectPoints(newPoints[5], newPoints[1])
-    connectPoints(newPoints[6], newPoints[2])
-    connectPoints(newPoints[7], newPoints[3])
+      connectPoints(newPoints[4], newPoints[0])
+      connectPoints(newPoints[5], newPoints[1])
+      connectPoints(newPoints[6], newPoints[2])
+      connectPoints(newPoints[7], newPoints[3])
 
-    connectPoints(newPoints[4], newPoints[6])
-    connectPoints(newPoints[5], newPoints[6])
-    connectPoints(newPoints[7], newPoints[4])
-    connectPoints(newPoints[7], newPoints[5])
-
+      connectPoints(newPoints[4], newPoints[6])
+      connectPoints(newPoints[5], newPoints[6])
+      connectPoints(newPoints[7], newPoints[4])
+      connectPoints(newPoints[7], newPoints[5])
 
     })
 
-  angle += 0.009;
+  // angle += 0.009;
 }
